@@ -1,0 +1,44 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header -->
+@await Component.InvokeAsync("_HeadLayoutComponentPartial")
+<!-- End Header -->
+
+<body>
+	<div class="wrapper">
+
+		<!-- Sidebar -->
+		@await Component.InvokeAsync("_SidebarLayoutComponentPartial")
+		<!-- End Sidebar -->
+		
+		
+		<!-- Main Panel -->
+		@await Component.InvokeAsync("_MainPanelLayoutComponent")
+		<!-- End Main Panel -->
+
+		@RenderBody()
+
+		<!-- Footer -->
+		@await Component.InvokeAsync("_FooterLayoutComponentPartial")
+		<!-- End Footer -->
+
+	</div>
+
+	<!-- Custom template -->
+	@await Component.InvokeAsync("_CustomTemplateLayoutComponentPartial")
+	<!-- End Custom template -->
+	
+</div>
+	
+		<!-- Scripts -->
+	@await Component.InvokeAsync("_ScriptLayoutComponentPartial")
+		<!-- End Scripts-->
+
+
+</body>
+</html>
