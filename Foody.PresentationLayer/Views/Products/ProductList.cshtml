@@ -1,11 +1,11 @@
-﻿@model List<Foody_EntityLayer.Concrete.Category>
+﻿@model List<Foody_EntityLayer.Concrete.Product>
 
 @{
-    ViewData["Title"] = "CategoryList";
+    ViewData["Title"] = "ProductList";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Category List</h1>
+<h1>ProductList</h1>
 
 <div class="container">
     <div class="page-inner">
@@ -32,7 +32,7 @@
             </ul>
         </div>
         <div class="row">
-            
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -42,9 +42,14 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">CategoryId</th>
-                                    <th scope="col">CategoryName</th>
-                                    <th scope="col">CategoryStatus</th>
+                                    <th scope="col">Product Id</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Product Price</th>
+                                    <th scope="col">Product Stock</th>
+                                    @* <th scope="col">Product ImageUrl</th> *@
+                                    @* <th scope="col">Product Description</th> *@
+                                    <th scope="col">Product CategoryId</th>
+
                                     <th scope="col">Update</th>
                                     <th scope="col">Delete</th>
                                 </tr>
@@ -53,18 +58,22 @@
                                 @foreach (var esya in Model)
                                 {
                                     <tr>
+                                        <td>@esya.ProductId</td>
+                                        <td>@esya.ProductName</td>
+                                        <td>@esya.Price</td>
+                                        <td>@esya.Stock</td>
+                                        @* <td>@esya.ImageUrl</td> *@
+                                        @* <td>@esya.Description</td> *@
                                         <td>@esya.CategoryId</td>
-                                        <td>@esya.CategoryName</td>
-                                        <td>@esya.CategoryStatus</td>
-                                        <td><a href="/Categories/UpdateCategory/@esya.CategoryId" class="btn btn-success">Update</a></td>
-                                        <td><a href="/Categories/DeleteCategory/@esya.CategoryId" class="btn btn-danger">Delete</a></td>
-                                        
+                                        <td><a href="/Products/UpdateProduct/@esya.ProductId" class="btn btn-success">Update</a></td>
+                                        <td><a href="/Products/DeleteProduct/@esya.ProductId" class="btn btn-danger">Delete</a></td>
+
                                     </tr>
                                 }
-                                
+
                             </tbody>
-                        </table>
-                        <a href="/Categories/CreateCategory/" class="btn btn-primary">Add New Category</a>
+                        </table>@*Products, yazan kisim aslinda CategoriesController.*@
+                        <a href="/Products/CreateProduct/" class="btn btn-primary">Add New Product</a>
 
                     </div>
                 </div>
@@ -72,4 +81,5 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
+

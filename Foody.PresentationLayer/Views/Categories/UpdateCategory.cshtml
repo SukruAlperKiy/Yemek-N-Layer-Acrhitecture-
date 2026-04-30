@@ -1,11 +1,11 @@
-﻿@model Foody_EntityLayer.Concrete.Category
+﻿@model Foody_EntityLayer.Concrete.Category;
 
 @{
-    ViewData["Title"] = "CreateCategory";
+    ViewData["Title"] = "UpdateCategory";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>CreateCategory</h1>
+<h1>UpdateCategory</h1>
 
 <div class="container">
     <div class="page-inner">
@@ -22,13 +22,13 @@
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Add Category</a>
+                    <a href="#">Update Category</a>
                 </li>
                 <li class="separator">
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">New Create Category</a>
+                    <a href="#">Update Category Operation</a>
                 </li>
             </ul>
         </div>
@@ -38,15 +38,18 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Add Category Panel</div>
+                        <div class="card-title">Update Category Panel</div>
                     </div>
                     <div class="card-body">
 
                         <form method="post">
+                            
+                            <input type="hidden" asp-for="CategoryId" class="form-control" />
+                            <br />
                             <label>Category Name</label>
                             <input type="text" asp-for="CategoryName" class="form-control" />
-                            <br/>
-                            <button class="btn btn-primary">Create Category</button>
+                            <br />
+                            <button class="btn btn-success">Update Category</button>
                             @* <label>Category Status</label> *@
 
                         </form>
@@ -56,4 +59,5 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
+

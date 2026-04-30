@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Foody.DataAccessLayer.Migrations
 {
     [DbContext(typeof(FoodyContext))]
-    [Migration("20260424114530_mig2")]
+    [Migration("20260430075239_mig2")]
     partial class mig2
     {
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace Foody.DataAccessLayer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.23")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -123,6 +123,9 @@ namespace Foody.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -142,6 +145,8 @@ namespace Foody.DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ProductId");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -219,6 +224,22 @@ namespace Foody.DataAccessLayer.Migrations
                     b.HasKey("SocialMediaId");
 
                     b.ToTable("SocialMedias");
+                });
+
+            modelBuilder.Entity("Foody_EntityLayer.Concrete.Product", b =>
+                {
+                    b.HasOne("Foody_EntityLayer.Concrete.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Foody_EntityLayer.Concrete.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
