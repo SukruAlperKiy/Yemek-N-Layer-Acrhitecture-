@@ -60,6 +60,17 @@ namespace Foody.BusinessLayer.Concrete
         {
             _productDal.Insert(varlik);
         }
+
+        //public List<Product> TProductListesiCategorisiIleBirlikte()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public List<Product> TProductListesiCategorisiIleBirlikte()
+        {
+            return _productDal.ProductListesiCategorisiIleBirlikte();
+        }
+
         public void TUpdate(Product varlik)
         {
             _productDal.Update(varlik);

@@ -1,11 +1,11 @@
 ﻿@model List<Foody_EntityLayer.Concrete.Product>
 
 @{
-    ViewData["Title"] = "ProductList";
+    ViewData["Title"] = "ProductListWithCategory";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>ProductList</h1>
+<h1>ProductListWithCategory</h1>
 
 <div class="container">
     <div class="page-inner">
@@ -48,7 +48,8 @@
                                     <th scope="col">Product Stock</th>
                                     @* <th scope="col">Product ImageUrl</th> *@
                                     @* <th scope="col">Product Description</th> *@
-                                    <th scope="col">Product CategoryId</th>
+                                    <th scope="col">Product Category Id</th>
+                                    <th scope="col">Product Category Name</th>
 
                                     <th scope="col">Update</th>
                                     <th scope="col">Delete</th>
@@ -65,8 +66,9 @@
                                         @* <td>@esya.ImageUrl</td> *@
                                         @* <td>@esya.Description</td> *@
                                         <td>@esya.CategoryId</td>
-                                        <td><a href="/Products/UpdateProduct/@esya.ProductId" class="btn btn-success">Update</a></td>
+                                        <td>@esya.Category.CategoryName</td>
                                         <td><a href="/Products/DeleteProduct/@esya.ProductId" class="btn btn-danger">Delete</a></td>
+                                        <td><a href="/Products/UpdateProduct/@esya.ProductId" class="btn btn-success">Update</a></td>
                                     </tr>
                                 }
 

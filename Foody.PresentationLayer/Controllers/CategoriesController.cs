@@ -39,6 +39,7 @@ namespace Foody.PresentationLayer.Controllers
             return RedirectToAction("CategoryList");
         }
 
+
         [HttpGet]
         public IActionResult UpdateCategory(int id)
         {

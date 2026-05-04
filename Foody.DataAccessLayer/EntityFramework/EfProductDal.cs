@@ -3,6 +3,7 @@ using Foody.DataAccessLayer.Abstract;
 using Foody.DataAccessLayer.Context;
 using Foody.DataAccessLayer.Repositories;
 using Foody_EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,20 @@ namespace Foody.DataAccessLayer.EntityFramework
 //                                                          IProductDal,  
     public class EfProductDal : GenericRepository<Product>, IProductDal
     {
+        private readonly FoodyContext _context;
+
 //  Disaridan bir FoodyContext (veritabani baglantisi) istenir. 
 //  base(context), bu baglantiyi alip, miras aldigi ust sinifa (GenericRepository) gonderir.
 //  Cunku veritabani islemlerini asil yapacak olan GenericRepository'dir ve onun calismak icin bu "context" nesnesine ihtiyaci vardir.
         public EfProductDal(FoodyContext context) : base(context)
         {
+            _context = context;
+        }
+
+        public List<Product> ProductListesiCategorisiIleBirlikte()
+        {
+            var values1111 = _context.Products.Include(x => x.Category).ToList();
+            return values1111;
         }
     }
 }
