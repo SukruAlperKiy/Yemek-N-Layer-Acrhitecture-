@@ -33,11 +33,14 @@ namespace Foody.PresentationLayer.Controllers
             return RedirectToAction("CategoryList");
         }
 
+
+
         public IActionResult DeleteCategory(int id)
         {
             _categoryService.TDelete(id);
             return RedirectToAction("CategoryList");
         }
+
 
 
         [HttpGet]

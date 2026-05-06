@@ -3,6 +3,7 @@ using Foody.BusinessLayer.Concrete;
 using Foody.DataAccessLayer.Abstract;
 using Foody.DataAccessLayer.Context;
 using Foody.DataAccessLayer.EntityFramework;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,12 @@ builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
 builder.Services.AddScoped<IProductDal, EfProductDal>();
 builder.Services.AddScoped<IProductService, ProductManager>();
-/* buraya kadar */
+
+builder.Services.AddScoped<ISliderDal, EfSliderDal>();
+builder.Services.AddScoped<ISliderService, SliderManager>();
+/*AutoMapper en ust surumunden 13.0.1 surumune indirince oldu.*/
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+/* BURAYA KADAR */
 
 
 
