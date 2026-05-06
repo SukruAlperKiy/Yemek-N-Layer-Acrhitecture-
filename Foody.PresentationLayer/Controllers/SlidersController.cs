@@ -31,18 +31,33 @@ namespace Foody.PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateResult(CreateSliderDto createSliderDto)
+        public IActionResult CreateSlider(CreateSliderDto createSliderDto)
         {
             var value999 = _mapper.Map<Slider>(createSliderDto);
             _sliderService.TInsert(value999);
             return RedirectToAction("SliderList");
         }
 
-        public IActionResult DeleteResult(int id)
+        public IActionResult DeleteSlider(int id)
         {
             _sliderService.TDelete(id);
             return RedirectToAction("SliderList");
 
+        }
+
+        [HttpGet]
+        public IActionResult UpdateSlider(int id)
+        {
+            var value777 = _sliderService.TGetById(id);
+            return View(_mapper.Map<GetByIdSliderDto>(value777));
+        }
+
+        [HttpPost]
+        public IActionResult UpdateSlider(UpdateSliderDto updateSliderDto)
+        {
+            var value000 = _mapper.Map<Slider>(updateSliderDto);
+            _sliderService.TUpdate(value000);
+            return RedirectToAction("SliderList");
         }
     }
 }
