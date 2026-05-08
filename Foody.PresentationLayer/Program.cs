@@ -7,7 +7,7 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 
 
 //Bu kodun ne ise yaradigini tam bilmiyorum.
@@ -23,6 +23,9 @@ builder.Services.AddScoped<ISliderDal, EfSliderDal>();
 builder.Services.AddScoped<ISliderService, SliderManager>();
 /*AutoMapper en ust surumunden 13.0.1 surumune indirince oldu.*/
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+builder.Services.AddScoped<IAboutDal, EfAboutDal>();
+builder.Services.AddScoped<IAboutService, AboutManager>();
 /* BURAYA KADAR */
 
 
@@ -30,8 +33,18 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+/* 32. video 404 pages */
+app.UseStatusCodePages(async x =>
+{
+    if (x.HttpContext.Response.StatusCode == 404)
+    {
+        x.HttpContext.Response.Redirect("/ErrorPages/ErrorPage404Sayfasi/");
+    }
+});
+/* BURAYA KADAR */
 
-// Configure the HTTP request pipeline.
+
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

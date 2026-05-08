@@ -1,16 +1,15 @@
-﻿@model Foody.DtoLayer.Dtos.SliderDtos.GetByIdSliderDto
-
+﻿@model Foody_EntityLayer.Concrete.About
 @{
-    ViewData["Title"] = "UpdateSlider";
+    ViewData["Title"] = "CreateAbout";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>UpdateSlider</h1>
+<h1>CreateAbout</h1>
 
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h3 class="fw-bold mb-3">Slider</h3>
+            <h3 class="fw-bold mb-3">Aboutlar</h3>
 
             <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
@@ -22,13 +21,13 @@
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Update Slider</a>
+                    <a href="#">Aboutlar Ekle</a>
                 </li>
                 <li class="separator">
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Update Slider Operation</a>
+                    <a href="#">Yeni Aboutlar Ekle</a>
                 </li>
             </ul>
         </div>
@@ -38,22 +37,20 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Update Slider Panel</div>
+                        <div class="card-title">About Paneli Olustur</div>
                     </div>
                     <div class="card-body">
 
                         <form method="post">
-                            @* burada input type ="hidden" yapildigi icin gozukmuyor.*@
-                            <input type="hidden" asp-for="SliderId" class="form-control" />
-                            <br />
-                            <label>Slider Name</label>
+                            <label>About Title</label>
                             <input type="text" asp-for="Title" class="form-control" />
                             <br />
-                            <label>Slider Image Url</label>
-                            <input type="text" asp-for="ImageUrl" class="form-control" />
+                            <label>About Description</label>
+                            <textarea class="form-control" asp-for="Description" rows="5"></textarea>
+                            @* <input type="text" asp-for="Description" class="form-control" /> *@
                             <br />
-                            <button class="btn btn-success">Update Slider</button>
-                            @* <label>Category Status</label> *@
+                            <button class="btn btn-primary">Create About</button>
+
                         </form>
 
                     </div>
@@ -62,3 +59,4 @@
         </div>
     </div>
 </div>
+

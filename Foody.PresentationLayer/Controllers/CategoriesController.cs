@@ -12,6 +12,7 @@ namespace Foody.PresentationLayer.Controllers
         {
             _categoryService = categoryService123;
         }
+        
         public IActionResult CategoryList()
         {
             var values123 = _categoryService.TGetAll(); 
