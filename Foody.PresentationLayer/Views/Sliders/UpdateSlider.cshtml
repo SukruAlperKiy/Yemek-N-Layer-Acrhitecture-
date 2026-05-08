@@ -1,4 +1,4 @@
-﻿@model Foody.DtoLayer.Dtos.SliderDtos.UpdateSliderDto
+﻿@model Foody.DtoLayer.Dtos.SliderDtos.GetByIdSliderDto
 
 @{
     ViewData["Title"] = "UpdateSlider";
@@ -46,8 +46,11 @@
                             @* burada input type ="hidden" yapildigi icin gozukmuyor.*@
                             <input type="hidden" asp-for="SliderId" class="form-control" />
                             <br />
-                            <label>Category Name</label>
+                            <label>Slider Name</label>
                             <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Slider Image Url</label>
+                            <input type="text" asp-for="ImageUrl" class="form-control" />
                             <br />
                             <button class="btn btn-success">Update Slider</button>
                             @* <label>Category Status</label> *@
