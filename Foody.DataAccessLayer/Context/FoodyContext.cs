@@ -28,6 +28,7 @@ namespace Foody.DataAccessLayer.Context
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<AboutItem> AboutItems { get; set; }
 
 //  Kisaca bu kod:
 //  1) C# kodlari ile SQL Server'i birlestirir (arasinda kopru kurar)
