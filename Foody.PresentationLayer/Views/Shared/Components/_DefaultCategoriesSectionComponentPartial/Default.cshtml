@@ -1,0 +1,27 @@
+﻿@model List<Foody_EntityLayer.Concrete.Category>
+
+@{
+    int ilkMi = 1;
+}
+@*Tab-1 alanlarini dinamik yap*@
+
+<div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+    <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
+        @foreach (var esya in Model)
+        {
+            if (ilkMi == 1)
+            {
+                <li class="nav-item me-2">
+                    <a class="btn btn-outline-primary border-2 active" data-bs-toggle="pill" href="#tab-@esya.CategoryId">@esya.CategoryName</a>
+                </li>
+                ilkMi++;
+            }
+            else
+            {
+                <li class="nav-item me-2">
+                    <a class="btn btn-outline-primary border-2" data-bs-toggle="pill" href="#tab-@esya.CategoryId">@esya.CategoryName</a>
+                </li>
+            }
+        }
+    </ul>
+</div>

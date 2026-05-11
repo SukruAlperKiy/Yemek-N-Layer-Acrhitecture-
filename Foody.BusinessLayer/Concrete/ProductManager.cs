@@ -71,6 +71,11 @@ namespace Foody.BusinessLayer.Concrete
             return _productDal.ProductListesiCategorisiIleBirlikte();
         }
 
+        public List<Product> TProductListWithCategoryAndLast12Items()
+        {
+            return _productDal.ProductListWithCategoryAndLast12Items();
+        }
+
         public void TUpdate(Product varlik)
         {
             _productDal.Update(varlik);

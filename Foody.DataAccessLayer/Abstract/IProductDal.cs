@@ -19,7 +19,8 @@ namespace Foody.DataAccessLayer.Abstract
         //Iste bu yuzden IProductDal acariz boylece sadece bu tabloya ozel SELECT'leri yazabiliriz.
 
         List<Product> ProductListesiCategorisiIleBirlikte();
-    
+        List<Product> ProductListWithCategoryAndLast12Items();
+
     }
 }
 //Kisaca,
