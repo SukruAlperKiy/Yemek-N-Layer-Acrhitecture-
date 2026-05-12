@@ -68,8 +68,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+/*BUradaki {controller=Home} yazan yeri {controller=Default} yaptim.*/
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();
