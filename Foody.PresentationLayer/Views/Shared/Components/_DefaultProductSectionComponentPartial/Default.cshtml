@@ -1,5 +1,6 @@
 ﻿@model List<Foody_EntityLayer.Concrete.Product>
 @*Tab-1 alanlarini dinamik yap*@
+@*urunlerin fotograflarini duzelt*@
 
 <div class="container-xxl py-5">
     <div class="container">
@@ -20,13 +21,13 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="product-item">
                             <div class="position-relative bg-light overflow-hidden">
-                                <img class="img-fluid w-100" src="@ogeler.ImageUrl" alt="">
+                                <img class="img-fluid w-100" src="@ogeler.ImageUrl" alt="" style="width: 100px; height: 750px;">
                                 <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">@ogeler.Category.CategoryName</div>
                             </div>
                             <div class="text-center p-4">
                                 <a class="d-block h5 mb-2" href="">@ogeler.ProductName</a>
                                 <span class="text-primary me-1">@ogeler.Price</span>
-                                <span class="text-body text-decoration-line-through">$29.00</span>
+                                <span class="text-body text-decoration-line-through">$@(ogeler.Price / 4 * 5)</span>
                             </div>
                             <div class="d-flex border-top">
                                 <small class="w-50 text-center border-end py-2">
